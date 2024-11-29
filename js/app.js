@@ -22,14 +22,16 @@ btnRoll.addEventListener('click', function () {
   diceEl.classList.remove('hidden');
   diceEl.src = `./image/dice-${dice}.png`;
   // 3. check for rolled 1 : 1 if true , switch to next player
-  if(dice !== 1){
-    // add dice to currentscore 
+  if (dice !== 1) {
+    // add dice to currentscore
     currentScore += dice;
-    document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
   } else {
     // switch player
     currentScore = 0;
-    document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
     activePlayer = activePlayer === 0 ? 1 : 0;
     player0El.classList.toggle('player--active');
     player1El.classList.toggle('player--active');
