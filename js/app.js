@@ -16,6 +16,15 @@ diceEl.classList.add('hidden');
 let currentScore = 0;
 let activePlayer = 0;
 const scores = [0, 0];
+// function
+const switchPlayer = function () {
+  currentScore = 0;
+  document.getElementById(`current--${activePlayer}`).textContent =
+    currentScore;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0El.classList.toggle('player--active');
+  player1El.classList.toggle('player--active');
+};
 // rolling dice
 btnRoll.addEventListener('click', function () {
   // 1. generating a ramdom dice roll
@@ -31,12 +40,7 @@ btnRoll.addEventListener('click', function () {
       currentScore;
   } else {
     // switch player
-    currentScore = 0;
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    player0El.classList.toggle('player--active');
-    player1El.classList.toggle('player--active');
+    switchPlayer();
   }
 });
 // btn hold
@@ -47,12 +51,7 @@ btnHold.addEventListener('click', function () {
     scores[activePlayer];
   // 2. check if player's score is >= 100
   // finish the game
-  
+
   // 3. switch player
-  currentScore = 0;
-  document.getElementById(`current--${activePlayer}`).textContent =
-    currentScore;
-  activePlayer = activePlayer === 0 ? 1 : 0;
-  player0El.classList.toggle('player--active');
-  player1El.classList.toggle('player--active');
+  switchPlayer();
 });
